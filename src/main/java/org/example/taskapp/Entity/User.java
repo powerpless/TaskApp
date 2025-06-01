@@ -3,6 +3,7 @@ package org.example.taskapp.Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -16,4 +17,6 @@ public class User {
     private String email;
     private String password;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Task> tasks;
 }
