@@ -53,7 +53,7 @@ public class TaskService {
         User currentUser = currentUserService.getCurrentUser();
 
         Task task = taskRepository.findByIdAndUserId(id, currentUser.getId())
-                .orElseThrow(() -> new RuntimeException("Задача не найдена или не принадлежит пользователю"));
+                .orElseThrow(() -> new RuntimeException("Task was not found or does not belong to the user"));
 
         taskRepository.delete(task);
     }
